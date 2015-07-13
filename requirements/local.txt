@@ -1,0 +1,5 @@
+django-devserver
+sqlparse
+werkzeug
+guppy
+#line_profiler
