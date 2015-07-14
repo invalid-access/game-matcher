@@ -1,6 +1,8 @@
 """Production settings and globals."""
 import redis
 from os import environ
+from os.path import normpath, join
+
 
 from settings import *
 
@@ -26,7 +28,6 @@ DEBUG = False
 TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = [
-    '.oorjan.com',
     'game-matcher.herokuapp.com'
 ]
 ########## END GENERAL CONFIGURATION
@@ -43,9 +44,12 @@ DATABASES = {}
 DATABASES['default'] = dj_database_url.config()
 ########## END HEROKU DATABASE CONFIGURATION
 
-
-
 ########## STATIC FILE CONFIGURATION
+SITE_ROOT = normpath(os.path.dirname(os.path.realpath(__file__)))
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
+
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
 
