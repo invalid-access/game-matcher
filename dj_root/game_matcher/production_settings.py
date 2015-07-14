@@ -45,12 +45,16 @@ DATABASES['default'] = dj_database_url.config()
 ########## END HEROKU DATABASE CONFIGURATION
 
 ########## STATIC FILE CONFIGURATION
-SITE_ROOT = normpath(os.path.dirname(os.path.realpath(__file__)))
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+# From https://devcenter.heroku.com/articles/django-assets
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 ########## END STATIC FILE CONFIGURATION
