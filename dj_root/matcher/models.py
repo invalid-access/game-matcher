@@ -22,14 +22,13 @@ class Player(models.Model):
 
 class FootballMetric(models.Model):
     player = models.OneToOneField(Player, primary_key=True)
-    speed = models.PositiveIntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(10)])
-    skill = models.PositiveIntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(10)])
-    stamina = models.PositiveIntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(10)])
-    aggression = models.PositiveIntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(10)])
+    defence = models.PositiveIntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(10)])
+    midfield = models.PositiveIntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(10)])
+    attack = models.PositiveIntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(10)])
 
     def __unicode__(self):
         return unicode(
-            {self.player: [self.speed, self.skill, self.stamina, self.aggression]}
+            {self.player: [self.defence, self.midfield, self.attack]}
         )
 
 

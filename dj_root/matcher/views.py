@@ -50,10 +50,9 @@ def match(request, playgroup_id):
                 if not footballmetric:
                     footballmetric = FootballMetric(player=player)
 
-                footballmetric.speed = int(request.POST['speed' + str(player.id)])
-                footballmetric.skill = int(request.POST['skill' + str(player.id)])
-                footballmetric.stamina = int(request.POST['stamina' + str(player.id)])
-                footballmetric.aggression = int(request.POST['aggression' + str(player.id)])
+                footballmetric.defence = int(request.POST['defence' + str(player.id)])
+                footballmetric.midfield = int(request.POST['midfield' + str(player.id)])
+                footballmetric.attack = int(request.POST['attack' + str(player.id)])
                 footballmetric.save()
 
                 is_present[player] = request.POST.get('is_present' + str(player.id), u'off')

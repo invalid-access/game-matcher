@@ -18,35 +18,28 @@ class PlayerAdmin(admin.ModelAdmin):
     list_display = (
         'first_name',
         'last_name',
-        'football_metric_speed',
-        'football_metric_skill',
-        'football_metric_stamina',
-        'football_metric_aggression',
+        'football_metric_defence',
+        'football_metric_midfield',
+        'football_metric_attack',
     )
 
-    def football_metric_speed(self, player):
-        return player.footballmetric.speed
+    def football_metric_defence(self, player):
+        return player.footballmetric.defence
 
-    football_metric_speed.short_description = 'Speed'
-    football_metric_speed.admin_order_field = 'footballmetric__speed'
+    football_metric_defence.short_description = 'Speed'
+    football_metric_defence.admin_order_field = 'footballmetric__defence'
 
-    def football_metric_skill(self, player):
-        return player.footballmetric.skill
+    def football_metric_midfield(self, player):
+        return player.footballmetric.midfield
 
-    football_metric_skill.short_description = 'Skill'
-    football_metric_skill.admin_order_field = 'footballmetric__skill'
+    football_metric_midfield.short_description = 'Skill'
+    football_metric_midfield.admin_order_field = 'footballmetric__midfield'
 
-    def football_metric_stamina(self, player):
-        return player.footballmetric.stamina
+    def football_metric_attack(self, player):
+        return player.footballmetric.attack
 
-    football_metric_stamina.short_description = 'Stamina'
-    football_metric_stamina.admin_order_field = 'footballmetric__stamina'
-
-    def football_metric_aggression(self, player):
-        return player.footballmetric.aggression
-
-    football_metric_aggression.short_description = 'Aggression'
-    football_metric_aggression.admin_order_field = 'footballmetric__aggression'
+    football_metric_attack.short_description = 'Stamina'
+    football_metric_attack.admin_order_field = 'footballmetric__attack'
 
     pass
 
