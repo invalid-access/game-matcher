@@ -1,5 +1,4 @@
 import itertools
-import random
 import numpy
 
 from .models import Playgroup, Player, FootballMetric
@@ -26,6 +25,6 @@ def get_best_matched_teams(players):
         team2 = [p for p in players if p not in team1]
         matched_teams.append({'diff': match_metric(team1, team2), 'team1': team1, 'team2': team2})
     sorted_matched_teams = sorted(matched_teams, key=lambda mt: mt['diff'])
-    return sorted_matched_teams[0:10]
+    return sorted_matched_teams[0:30]
 
 
