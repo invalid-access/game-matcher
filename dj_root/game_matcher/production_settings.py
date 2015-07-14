@@ -46,19 +46,7 @@ DATABASES['default'] = dj_database_url.config()
 
 
 ########## STATIC FILE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
-
-print SITE_NAME, SITE_ROOT, STATIC_ROOT, DJANGO_ROOT
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_URL = 'http://s3.amazonaws.com/oorjan/static/'
+STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    normpath(SITE_ROOT),
-)
-
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-)
 ########## END STATIC FILE CONFIGURATION
