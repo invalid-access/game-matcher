@@ -1,0 +1,2 @@
+This file exists solely to pre-create the dj_root/game_matcher/static/ directory as described here:
+https://devcenter.heroku.com/articles/django-assets
